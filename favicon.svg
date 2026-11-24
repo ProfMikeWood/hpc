@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Retro Macintosh computer favicon</title>
+  <desc id="desc">A cheerful cartoon off-white compact Macintosh computer with a pixel face and keyboard.</desc>
+
+  <!-- Classic compact-Mac silhouette; the canvas outside the computer is transparent. -->
+  <path d="M22 25c0-6.1 4.9-11 11-11h62c6.1 0 11 4.9 11 11v57c0 6.1-4.9 11-11 11H33c-6.1 0-11-4.9-11-11Z"
+        fill="#f1ead9" stroke="#182337" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M28 27c0-3.9 3.1-7 7-7h58c3.9 0 7 3.1 7 7v3H28Z"
+        fill="#fff8e8" opacity=".75"/>
+
+  <!-- CRT bezel and softly green phosphor screen. -->
+  <rect x="30" y="28" width="68" height="49" rx="8" fill="#d9d0be" stroke="#182337" stroke-width="4"/>
+  <rect x="36" y="34" width="56" height="36" rx="4" fill="#344957" stroke="#182337" stroke-width="3.5"/>
+  <path d="M40 39h48v3H40z" fill="#8db3a1" opacity=".5"/>
+  <path d="M43 44h42v22H43z" fill="#607f78" opacity=".35"/>
+
+  <!-- Floppy-drive slot, speaker grille, and power light make the hardware read as a vintage Mac. -->
+  <path d="M49 82h25" fill="none" stroke="#182337" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M80 82h2M86 82h2M92 82h2M80 87h2M86 87h2M92 87h2"
+        fill="none" stroke="#b7ad9a" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="35" cy="83" r="3" fill="#9fcf83" stroke="#182337" stroke-width="1.5"/>
+
+  <!-- Separate off-white keyboard. -->
+  <path d="M25 96h78l8 10c2.1 2.7.2 6.7-3.2 6.7H20.2c-3.4 0-5.3-4-3.2-6.7Z"
+        fill="#e6ddca" stroke="#182337" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M29 101h8M43 101h8M57 101h8M71 101h8M85 101h8M36 107h13M54 107h20M79 107h13"
+        fill="none" stroke="#8f8778" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M27 97h74" fill="none" stroke="#fff8e8" stroke-width="3" opacity=".8"/>
+</svg>

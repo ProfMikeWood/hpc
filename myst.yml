@@ -1,0 +1,30 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: bbdf047e-6cdc-4b09-b300-24648ee3b5b8
+  title: High Perfomance Computing
+  description: A reference guide for using high performance computing clusters
+  keywords: [computing cluster]
+  authors: [Mike Wood]
+  github: https://github.com/ProfMikeWood/hpc
+  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+  toc:
+    - file: intro.md
+    - title: Spartan
+      children:
+        - file: spartan/welcome_spartan.md
+        - file: spartan/prerequisites_spartan.md
+        - file: spartan/navigating_spartan.md
+        - file: spartan/moving_files_spartan.md
+        - file: spartan/running_jobs_spartan.md
+        - file: spartan/conda_environments_spartan.md
+        - title: Examples
+          children:
+             - file: spartan/examples/mitgcm_spartan.md
+site:
+  template: book-theme
+  options:
+    logo: logo.png
+    favicon: favicon.svg
+    
+
