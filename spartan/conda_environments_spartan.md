@@ -4,7 +4,7 @@ When working on Spartan, it's likely that you'll want to use some exterior packa
 
 ## Creating an Environment
 
-To create a conda envionment called `my-inv` use the Miniforge installation available on Spartan, first ensure you are in your home directory (one of the rare times we will run code in the home directory). Then, use the following series of commands:
+To create a conda envionment called `my-env` use the Miniforge installation available on Spartan, first ensure you are in your home directory (one of the rare times we will run code in the home directory). Then, use the following series of commands:
 
 ```
 /opt/Miniforge3/Miniforge3-24.9.0-0-science/bin/conda init bash
@@ -36,7 +36,7 @@ conda environments typically need to be activated in order for our scripts to ru
 Consider the following python script which we would like to send to the compute nodes:
 
 ```{code}
-:caption: Contents of python_test.py
+:caption: Contents of `python_test.py`
 import os
 import numpy as np
 
@@ -50,9 +50,9 @@ This is a simple example to show that the conda environment we created is used b
 
 As we saw in the previous page about submitting jobs, we will need a job submission script for this code. Let's prepare this as follows:
 
-```
+```{code}
+:caption: Contents of `test_python.slurm`
 #!/bin/bash
-:caption: Contents of test_python.slurm
 #SBATCH --partition=nodes
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -77,5 +77,5 @@ Active conda environment: my-env
 Example numpy array: [1 2 3 4 5]
 ```
 
-You can use this same approach to install any packages you need for your work in a conda environment. Some examples are shown in the following pages.
+You can use this same approach to install any packages you need for your work in a conda environment. Some examples are shown in the Examples section.
 

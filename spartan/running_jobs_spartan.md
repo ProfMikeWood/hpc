@@ -1,9 +1,9 @@
 # Running jobs on Spartan
 
-High performance computing clusters implement a job queue to manage computations submitted by different users. Spartan uses a common job managers called slurm. Here, we'll walk through the steps to create a job submission script and submit the job to Spartan.
+High performance computing clusters implement a job queue to manage computations submitted by different users. Spartan uses a commonly-used job manager called **slurm**. Here, we'll walk through the steps to create a job submission script and submit the job to Spartan in the slurm system.
 
 ## An Example Job
-To showcase how to submit a job on Spartan, we'll use an example script which prints out a line, pauses for 30 seconds, and then prints out another line:
+To showcase the steps to submit a job on Spartan, we'll use an example script called `spartan_test.sh` which prints out a line, pauses for 30 seconds, and then prints out another line:
 
 ```{code} python
 :caption: Contents of `spartan_test.sh`
@@ -13,16 +13,16 @@ sleep 30
 echo "Waking back up, script has ended"
 ```
 
-We will send this script to run on the computation nodes using a slurm job script.
+We will send this script to run on the compute nodes using a slurm job script.
 
 ## Creating a Job Script
-A job script outlines the time and resources required to run the job and other pertinent parameters.
+A job script outlines the time and resources required to run the job as well as other pertinent parameters.
 
 ### Job Script Format
 A job script has three components:
-1. Header lines passed to the job management system (e.g. pbs or slurm)
+1. Header lines passed to the job management system (slurm)
 2. Pertinent set-up checks (e.g. purging/loading modules, checking files structures)
-3. Running the job executable
+3. Running the job executable(s)
 
 
 ### Example slurm job script for `spartan_test.sh`
@@ -44,16 +44,16 @@ bash spartan_test.sh
 ```
 
 #### The slurm header
-In the script above, we can see that there are several lines beginning with `SBATCH` - these lines pass information to the job scheduler which explain how the job should be handled. The purpose of these lines are summarized in the following table:
+In the script above, we can see that there are several lines beginning with `#SBATCH` - these lines pass information to the job scheduler which explain how the job should be handled. The purpose of these lines are summarized in the following table:
 
 | Line | Purpose |
 |---------|---------|
 |#SBATCH --partition=nodes | This line passes the job to the `nodes` partition of Spartan. The `nodes` partition has 72 Broadwell nodes with 28 CPUs each. Unless your code is set up to run on GPUs, this will be your default partition. |
 |#SBATCH --nodes=1| This line requests to use one node. Unless your code is designed to run in parallel across multiple nodes, this number should be 1. |
 |#SBATCH --ntasks=1| This line requests to use one CPU. Again, unless your code is designed to run in parallel across multiple CPUs, this number should be 1. Note also that "multithredding" on a single CPU is different from running accross multiple CPUs. |
-|#SBATCH --time=00:01:00| This line requests one minute of computational time for your script. You job script should included an estimate allotment of time for your script to run with some buffer time for good measure. |
-|#SBATCH --mail-user=first.last@email.com | This line will send an email to you with updates about your job. This can be helpful when running long jobs so you don't need to monitor them all of the time.
-|#SBATCH --mail-type=ALL| This line describes what should be sent to you via email. Be default, it will include emails for both the starting of your script and the ending of your script. |
+|#SBATCH --time=00:01:00| This line requests one minute of computational time for your script. You job script should included an estimated allotment of time for your script to run with some buffer time for good measure. |
+|#SBATCH --mail-user=first.last@email.com | This line will send an email to you with updates about your job. This can be helpful when running long jobs so you don't need to monitor them all of the time. However, it is not necessary to include.
+|#SBATCH --mail-type=ALL| This line describes what should be sent to you via email. Be default, it will include emails for both the starting of your script and the ending of your script. Again, it is not necessary to include. |
 
 #### The job script body
 The body of the job script, under the slurm header, will include all of the code that will be run on the compute nodes. This should include any prerequisites for your scripts, such as modules and conda environments, as well as the script itself. In the example above, the body is very simple - its just the line required to run the script: `bash spartan_test.sh`.
