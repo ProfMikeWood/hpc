@@ -76,7 +76,7 @@ mpirun -np 72 ./mitgcmuv
 It is important to note here that the number of CPUs request (72 CPUs divided across 3 nodes) is equal to the number of processors requested for the run when running the executable with MPI. This is explained in the next section.
 
 ### Determining the number of CPUs and Nodes
-When requesting resources for our model, we need to determine how many CPUs are required for the job. In the case of MITgcm, the number of CPUs is the total number of processors identified in the `SIZE.h` file (`nPx`*`nPy`). After the CPUs have been determined, next you need to determine the nodes to request for the job - the key component of the job script. The number of nodes for a job is determined by how many CPUs are on each node - on SPartan, there are 2 Broadwell processors containing 14 CPUs each as a node, resulting in 28 CPUs per node. The, the total nodes required for your job is given by
+When requesting resources for our model, we need to determine how many CPUs are required for the job. In the case of MITgcm, the number of CPUs is the total number of processors identified in the `SIZE.h` file (`nPx`*`nPy`). After the CPUs have been determined, next you need to determine the nodes to request for the job - the key component of the job script. The number of nodes for a job is determined by how many CPUs are on each node, On Spartan, each node contains 2 Broadwell processors containing 14 CPUs, resulting in 28 CPUs per node. Thus, the total nodes required for your job is given by
 
 $
 \text{nodes} = \text{ceiling}\left(\frac{\text{nunber of cpus}}{\text{cpus per node}}\right)
